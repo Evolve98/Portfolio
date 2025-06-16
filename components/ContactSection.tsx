@@ -13,7 +13,7 @@ const ContactSection: React.FC<{ id: string; contactData: ContactData }> = ({ id
         </p>
         <a 
           href={`mailto:${contactData.email}`} 
-          className="inline-flex items-center justify-center bg-cyan-500 hover:bg-cyan-400 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow-md hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105 mb-8"
+          className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg text-lg shadow-md hover:shadow-blue-600/50 transition-all duration-300 transform hover:scale-105 mb-8"
         >
           <MailIcon className="w-5 h-5 mr-2" /> Send an Email
         </a>
@@ -25,7 +25,7 @@ const ContactSection: React.FC<{ id: string; contactData: ContactData }> = ({ id
               target="_blank"
               rel="noopener noreferrer"
               aria-label={link.name}
-              className="text-slate-400 hover:text-cyan-400 transition-colors"
+              className="text-slate-400 hover:text-blue-500 transition-colors"
             >
               <link.icon className="w-8 h-8" />
             </a>

@@ -27,7 +27,7 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects }) => {
             onClick={() => setActiveCategory(category as ProjectCategory | 'All')}
             className={`px-4 py-2 text-sm sm:text-base font-medium rounded-md transition-all duration-300
               ${activeCategory === category 
-                ? 'bg-cyan-500 text-white shadow-md' 
+                ? 'bg-blue-600 text-white shadow-md' 
                 : 'bg-slate-700 text-slate-300 hover:bg-slate-600 hover:text-white'
               }`}
           >

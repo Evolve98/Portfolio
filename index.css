@@ -25,9 +25,9 @@ body {
   background: #1e293b; /* slate-800 */
 }
 ::-webkit-scrollbar-thumb {
-  background: #38bdf8; /* cyan-400 */
+  background: #3b82f6; /* blue-500, was cyan-400 */
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #0ea5e9; /* cyan-500 */
+  background: #2563eb; /* blue-600, was cyan-500 */
 }

@@ -12,11 +12,11 @@ const ProjectDetailPage: React.FC = () => {
   if (!project) {
     return (
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <h1 className="text-4xl font-bold text-cyan-400 mb-4">Project Not Found</h1>
+        <h1 className="text-4xl font-bold text-blue-500 mb-4">Project Not Found</h1>
         <p className="text-slate-300 mb-8">Sorry, we couldn't find the project you were looking for.</p>
         <Link
           to="/#projects"
-          className="inline-flex items-center bg-cyan-500 hover:bg-cyan-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-cyan-500/50 transition-all duration-300"
+          className="inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-blue-600/50 transition-all duration-300"
         >
           <LinkIcon className="w-5 h-5 mr-2 transform rotate-180" /> Back to All Projects
         </Link>
@@ -32,7 +32,7 @@ const ProjectDetailPage: React.FC = () => {
         {/* Back Link */}
          <Link
             to="/#projects"
-            className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 group"
+            className="inline-flex items-center text-blue-500 hover:text-blue-400 mb-8 group"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 transition-transform duration-300 group-hover:-translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
               <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -40,7 +40,7 @@ const ProjectDetailPage: React.FC = () => {
             Back to All Projects
           </Link>
 
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-4" style={{fontFamily: "'Poppins', sans-serif"}}>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-4" style={{fontFamily: "'Poppins', sans-serif"}}>
           {project.title}
         </h1>
 
@@ -58,10 +58,10 @@ const ProjectDetailPage: React.FC = () => {
         </div>
         
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-cyan-400 mb-3">Technologies Used:</h3>
+          <h3 className="text-2xl font-semibold text-blue-500 mb-3">Technologies Used:</h3>
           <div className="flex flex-wrap gap-3">
             {project.technologies.map((tech) => (
-              <span key={tech} className="bg-slate-700 text-cyan-300 text-sm px-3 py-1.5 rounded-full shadow">
+              <span key={tech} className="bg-slate-700 text-blue-400 text-sm px-3 py-1.5 rounded-full shadow">
                 {tech}
               </span>
             ))}
@@ -74,7 +74,7 @@ const ProjectDetailPage: React.FC = () => {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-lg text-cyan-400 hover:text-cyan-300 transition-colors group"
+              className="inline-flex items-center text-lg text-blue-500 hover:text-blue-400 transition-colors group"
             >
               <GlobeIcon className="w-6 h-6 mr-2" />
               View Live Project / Repository
@@ -85,10 +85,10 @@ const ProjectDetailPage: React.FC = () => {
 
         {project.detailImages && project.detailImages.length > 0 && (
           <div className="mt-10">
-            <h3 className="text-2xl font-semibold text-cyan-400 mb-6">Project Gallery:</h3>
+            <h3 className="text-2xl font-semibold text-blue-500 mb-6">Project Gallery:</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {project.detailImages.map((imgUrl, index) => (
-                <div key={index} className="rounded-lg overflow-hidden shadow-lg border-2 border-slate-700 hover:border-cyan-500 transition-all duration-300">
+                <div key={index} className="rounded-lg overflow-hidden shadow-lg border-2 border-slate-700 hover:border-blue-600 transition-all duration-300">
                   <img 
                     src={imgUrl} 
                     alt={`${project.title} - Detail Image ${index + 1}`} 

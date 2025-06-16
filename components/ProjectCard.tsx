@@ -6,12 +6,12 @@ import { GlobeIcon, LinkIcon as ArrowRightIcon } from './icons/SocialIcons'; // 
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="bg-slate-800 rounded-lg shadow-xl overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-cyan-500/30 group">
+    <div className="bg-slate-800 rounded-lg shadow-xl overflow-hidden flex flex-col transform transition-all duration-300 hover:shadow-blue-600/30 group">
       <Link to={`/project/${project.id}`} className="block hover:opacity-90 transition-opacity">
         <img src={project.imageUrl} alt={project.title} className="w-full h-56 object-cover" />
       </Link>
       <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold text-cyan-400 mb-2 group-hover:text-cyan-300 transition-colors">
+        <h3 className="text-xl font-semibold text-blue-500 mb-2 group-hover:text-blue-400 transition-colors">
           <Link to={`/project/${project.id}`}>{project.title}</Link>
         </h3>
         {project.companyName && (
@@ -28,12 +28,12 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           <h4 className="text-sm font-semibold text-slate-200 mb-1">Technologies:</h4>
           <div className="flex flex-wrap gap-2">
             {project.technologies.slice(0, 4).map((tech) => ( // Show limited techs initially
-              <span key={tech} className="bg-slate-700 text-cyan-300 text-xs px-2 py-1 rounded-full">
+              <span key={tech} className="bg-slate-700 text-blue-400 text-xs px-2 py-1 rounded-full">
                 {tech}
               </span>
             ))}
             {project.technologies.length > 4 && (
-              <span className="bg-slate-600 text-cyan-200 text-xs px-2 py-1 rounded-full">
+              <span className="bg-slate-600 text-blue-300 text-xs px-2 py-1 rounded-full">
                 +{project.technologies.length - 4} more
               </span>
             )}
@@ -43,7 +43,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         <div className="mt-auto flex justify-between items-center">
           <Link
             to={`/project/${project.id}`}
-            className="inline-flex items-center text-sm text-cyan-400 hover:text-cyan-300 transition-colors font-medium"
+            className="inline-flex items-center text-sm text-blue-500 hover:text-blue-400 transition-colors font-medium"
           >
             View Details <ArrowRightIcon className="w-4 h-4 ml-1.5 transform transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
@@ -52,7 +52,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
               href={project.projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-cyan-400 transition-colors"
+              className="text-slate-400 hover:text-blue-500 transition-colors"
               aria-label="View external project link"
               onClick={(e) => e.stopPropagation()} // Prevent card link navigation if outer link is also a Link
             >

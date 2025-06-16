@@ -16,7 +16,7 @@ const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, r
               href={resumeData.resumePdfUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center bg-cyan-500 hover:bg-cyan-400 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105"
+              className="mt-6 inline-flex items-center bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:shadow-blue-600/50 transition-all duration-300 transform hover:scale-105"
             >
               <DownloadIcon className="w-5 h-5 mr-2" />
               Download Full Resume (PDF)
@@ -26,14 +26,14 @@ const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, r
 
         {/* Experience */}
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center">
-            <BriefcaseIcon className="w-7 h-7 mr-3 text-cyan-400" />
+          <h3 className="text-2xl font-semibold text-blue-500 mb-6 flex items-center">
+            <BriefcaseIcon className="w-7 h-7 mr-3 text-blue-500" />
             Experience
           </h3>
           {resumeData.experience.map((item, index) => (
-            <div key={index} className="mb-6 p-4 border-l-4 border-cyan-500 bg-slate-700/30 rounded-r-lg">
+            <div key={index} className="mb-6 p-4 border-l-4 border-blue-600 bg-slate-700/30 rounded-r-lg">
               <h4 className="text-xl font-semibold text-slate-100">{item.role}</h4>
-              <p className="text-md text-cyan-300 font-medium">
+              <p className="text-md text-blue-400 font-medium">
                 {item.companyUrl ? (
                   <a href={item.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:underline inline-flex items-center">
                     {item.company} <LinkIcon className="w-3 h-3 ml-1.5"/>
@@ -52,14 +52,14 @@ const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, r
 
         {/* Education */}
         <div className="mb-8">
-          <h3 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center">
-            <AcademicCapIcon className="w-7 h-7 mr-3 text-cyan-400" />
+          <h3 className="text-2xl font-semibold text-blue-500 mb-6 flex items-center"> {/* Changed from cyan-400 to blue-500 for consistency */}
+            <AcademicCapIcon className="w-7 h-7 mr-3 text-blue-500" /> {/* Changed from cyan-400 to blue-500 */}
             Education
           </h3>
           {resumeData.education.map((item, index) => (
-            <div key={index} className="mb-4 p-4 border-l-4 border-purple-500 bg-slate-700/30 rounded-r-lg">
+            <div key={index} className="mb-4 p-4 border-l-4 border-indigo-500 bg-slate-700/30 rounded-r-lg"> {/* Changed purple-500 to indigo-500 */}
               <h4 className="text-xl font-semibold text-slate-100">{item.degree}</h4>
-              <p className="text-md text-purple-300 font-medium">{item.institution}</p>
+              <p className="text-md text-indigo-400 font-medium">{item.institution}</p> {/* Changed purple-300 to indigo-400 */}
               <p className="text-sm text-slate-400">{item.year}</p>
             </div>
           ))}
@@ -67,8 +67,8 @@ const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, r
 
         {/* Skills */}
         <div>
-          <h3 className="text-2xl font-semibold text-cyan-400 mb-6 flex items-center">
-            <SparklesIcon className="w-7 h-7 mr-3 text-cyan-400" />
+          <h3 className="text-2xl font-semibold text-blue-500 mb-6 flex items-center"> {/* Changed from cyan-400 to blue-500 */}
+            <SparklesIcon className="w-7 h-7 mr-3 text-blue-500" /> {/* Changed from cyan-400 to blue-500 */}
             Skills
           </h3>
           <div className="grid md:grid-cols-3 gap-6">

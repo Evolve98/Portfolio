@@ -9,10 +9,10 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ id, data }) => {
   return (
-    <section id={id} className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-center px-4 pt-20">
+    <section id={id} className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 text-center px-4 pt-20">
       <div className="max-w-3xl">
         <h1 
-          className="text-5xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 mb-6"
+          className="text-5xl sm:text-6xl md:text-7xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500 mb-6"
           style={{fontFamily: "'Poppins', sans-serif"}}
         >
           {data.title}
@@ -22,7 +22,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ id, data }) => {
         </p>
         <a
           href={data.ctaLink}
-          className="bg-cyan-500 hover:bg-cyan-400 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 transform hover:scale-105"
+          className="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-8 rounded-lg text-lg shadow-lg hover:shadow-blue-600/50 transition-all duration-300 transform hover:scale-105"
         >
           {data.ctaText}
         </a>

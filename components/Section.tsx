@@ -13,7 +13,7 @@ const Section: React.FC<SectionProps> = ({ id, title, children, className = '' }
     <section id={id} className={`py-16 sm:py-20 md:py-24 ${className} bg-slate-900`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <h2 
-          className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500"
+          className="text-3xl sm:text-4xl font-bold text-center mb-12 sm:mb-16 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500"
           style={{fontFamily: "'Poppins', sans-serif"}}
         >
           {title}

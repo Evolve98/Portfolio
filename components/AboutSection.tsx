@@ -16,11 +16,11 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id, data }) => {
           <img 
             src={data.profileImageUrl} 
             alt="Profile" 
-            className="rounded-lg shadow-xl mx-auto w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-cyan-500/50"
+            className="rounded-lg shadow-xl mx-auto w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-blue-600/50"
           />
         </div>
         <div className="md:col-span-2 text-slate-300 space-y-4">
-          <h3 className="text-3xl font-semibold text-cyan-400 mb-2">{data.greeting}</h3>
+          <h3 className="text-3xl font-semibold text-blue-500 mb-2">{data.greeting}</h3>
           <p className="text-lg leading-relaxed">{data.introduction}</p>
           {data.bioParagraphs.map((paragraph, index) => (
             <p key={index} className="text-md leading-relaxed">
