@@ -1,24 +1,42 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import ProjectsSection from './components/ProjectsSection';
-import ResumeSection from './components/ResumeSection';
-import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-import { NAV_LINKS, PROJECTS_DATA, RESUME_DATA, ABOUT_DATA, CONTACT_DATA, HERO_DATA } from './constants';
+import HomePage from './pages/HomePage';
+import ProjectDetailPage from './pages/ProjectDetailPage';
+import { NAV_LINKS } from './constants';
+
+// Component to handle scrolling to hash links
+const ScrollToHashElement = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // Scroll to top if no hash, or on initial load of a new page
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return null;
+};
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-900">
+      <ScrollToHashElement />
       <Navbar navLinks={NAV_LINKS} />
-      <main className="flex-grow">
-        <HeroSection id="home" data={HERO_DATA} />
-        <AboutSection id="about" data={ABOUT_DATA} />
-        <ProjectsSection id="projects" projects={PROJECTS_DATA} />
-        <ResumeSection id="resume" resumeData={RESUME_DATA} />
-        <ContactSection id="contact" contactData={CONTACT_DATA} />
+      <main className="flex-grow pt-20"> {/* Add padding-top to account for fixed navbar */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/project/:projectId" element={<ProjectDetailPage />} />
+          {/* You can add a 404 Not Found page route here later */}
+        </Routes>
       </main>
       <Footer />
     </div>

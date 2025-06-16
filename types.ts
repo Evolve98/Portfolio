@@ -10,10 +10,12 @@ export interface Project {
   category: ProjectCategory;
   imageUrl: string;
   description: string;
+  longDescription?: string; // Optional: for a more detailed description on the project page
   technologies: string[];
   role?: string;
   projectUrl?: string;
   companyName?: string;
+  detailImages?: string[]; // Images for the project detail page
 }
 
 export interface ExperienceItem {
@@ -47,6 +49,7 @@ export interface ResumeData {
 export interface NavLink {
   href: string;
   label: string;
+  isExternal?: boolean; // For external links if any
 }
 
 export interface AboutData {
