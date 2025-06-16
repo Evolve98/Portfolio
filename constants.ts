@@ -189,7 +189,7 @@ export const RESUME_DATA: ResumeData = {
     ],
     toolsAndPlatforms: ["Jira", "Confluence", "iOS", "Android", "Mobile Game Development Cycle"],
   },
-  resumePdfUrl: "/resume/Aravind_Nair_Resume.pdf", // Path relative to public folder root
+  resumePdfUrl: "/Aravind_Nair_Resume.pdf", // Path relative to public folder root
 };
 
 export const CONTACT_DATA: ContactData = {
