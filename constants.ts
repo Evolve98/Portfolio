@@ -1,10 +1,10 @@
 
 import { Project, ProjectCategory, ResumeData, NavLink, AboutData, ContactData, HeroData } from './types';
-import { GithubIcon, LinkedinIcon, MailIcon, GlobeIcon } from './components/icons/SocialIcons';
+import { LinkedinIcon, MailIcon, GlobeIcon, ArtstationIcon } from './components/icons/SocialIcons'; // Added ArtstationIcon
 
 export const HERO_DATA: HeroData = {
   title: "Hi, I'm [Your Name]",
-  subtitle: "Technical Artist", // Updated subtitle
+  subtitle: "Technical Artist", 
   ctaText: "View My Work",
   ctaLink: "#projects"
 };
@@ -84,7 +84,7 @@ export const RESUME_DATA: ResumeData = {
   summary: "A Game Artist and Technical Artist with 4 years of experience at Kwalee, focused on casual and hybrid-casual mobile games. Proficient in creating game-ready art, implementing it in Unity, including animation systems, VFX, shader development, and performance optimization. Passionate about stylized shaders and understanding VFX workflows.",
   experience: [
     {
-      role: 'Game artist - II', // Updated role
+      role: 'Game artist - II', 
       company: 'Kwalee',
       // companyUrl: 'https://www.kwalee.com/', // Optional: Add Kwalee's URL
       duration: 'Apr 2023 - Present',
@@ -113,14 +113,9 @@ export const RESUME_DATA: ResumeData = {
   ],
   education: [
     {
-      degree: 'BCA in game development and mobile applications', // Updated degree
-      institution: 'Cmr Institute of Management Studies', // Updated institution
-      year: '2018', // Updated year
-    },
-     {
-      degree: 'Diploma in 3D Animation & VFX',
-      institution: 'Art & Design Institute',
-      year: '2018', // Assuming this is a separate, previous qualification. Adjust if this should also be 2018 or another year.
+      degree: 'BCA in game development and mobile applications', 
+      institution: 'Cmr Institute of Management Studies', 
+      year: '2018', 
     },
   ],
   skills: {
@@ -134,9 +129,9 @@ export const RESUME_DATA: ResumeData = {
 
 export const CONTACT_DATA: ContactData = {
   title: "Let's Connect",
-  email: "your.email@example.com", // Replace with your actual email
+  email: "aravindcoco16@gmail.com", 
   links: [
-    { name: 'GitHub', url: 'https://github.com/yourusername', icon: GithubIcon }, // Replace with your GitHub
-    { name: 'LinkedIn', url: 'https://linkedin.com/in/yourusername', icon: LinkedinIcon }, // Replace with your LinkedIn
+    { name: 'LinkedIn', url: 'https://www.linkedin.com/in/evolveart/', icon: LinkedinIcon }, 
+    { name: 'ArtStation', url: 'https://www.artstation.com/aravindnair', icon: ArtstationIcon },
   ],
 };

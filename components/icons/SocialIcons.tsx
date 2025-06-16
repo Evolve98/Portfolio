@@ -34,3 +34,13 @@ export const LinkIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
   </svg>
 );
+
+export const ArtstationIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+    <path d="M12.756 3.653L4.477 19.5h2.868l1.768-3.534h7.774l1.768 3.534h2.868L13.244 3.653h-1.9zm-.92 8.35L13.08 9.39l1.244 2.613h-3.488z" />
+  </svg>
+);
+// A simpler 'A' like Artstation Icon
+// <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
+//   <path d="M12 2L2 19.55H5.4L7.55 15.35H16.45L18.6 19.55H22L12 2ZM9.3 12.8L12 7.2L14.7 12.8H9.3Z" />
+// </svg>

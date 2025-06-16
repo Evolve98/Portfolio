@@ -16,7 +16,7 @@ const AboutSection: React.FC<AboutSectionProps> = ({ id, data }) => {
           <img 
             src={data.profileImageUrl} 
             alt="Profile" 
-            className="rounded-lg shadow-xl mx-auto w-64 h-64 md:w-full md:h-auto object-cover border-4 border-cyan-500/50"
+            className="rounded-lg shadow-xl mx-auto w-48 h-48 md:w-56 md:h-56 object-cover border-4 border-cyan-500/50"
           />
         </div>
         <div className="md:col-span-2 text-slate-300 space-y-4">
