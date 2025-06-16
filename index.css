@@ -1,0 +1,33 @@
+/* Import Tailwind's base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles previously in index.html */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Modern sans-serif for body */
+  /* Antialiasing is already applied by Tailwind's preflight, 
+     but can be ensured here if needed.
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale; 
+  */
+}
+
+/* Custom scrollbar for a more polished look - optional */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #1e293b; /* slate-800 */
+}
+::-webkit-scrollbar-thumb {
+  background: #38bdf8; /* cyan-400 */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0ea5e9; /* cyan-500 */
+}
