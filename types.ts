@@ -1,4 +1,6 @@
 
+import React from 'react'; // Added import for React.ElementType
+
 export enum ProjectCategory {
   COMPANY = 'Company Projects',
   PERSONAL = 'Personal Projects',
@@ -10,12 +12,13 @@ export interface Project {
   category: ProjectCategory;
   imageUrl: string;
   description: string;
-  longDescription?: string; // Optional: for a more detailed description on the project page
   technologies: string[];
   role?: string;
-  projectUrl?: string;
+  projectUrl?: string; // General project link, e.g., for personal projects
+  playStoreUrl?: string; // Link to Google Play Store
+  appStoreUrl?: string; // Link to Apple App Store
   companyName?: string;
-  detailImages?: string[]; // Images for the project detail page
+  releaseDate?: string; // Format 'YYYY-MM' or 'YYYY' for sorting
 }
 
 export interface ExperienceItem {
@@ -49,7 +52,7 @@ export interface ResumeData {
 export interface NavLink {
   href: string;
   label: string;
-  isExternal?: boolean; // For external links if any
+  targetId?: string; // Optional: for specific scroll targets
 }
 
 export interface AboutData {
@@ -62,7 +65,7 @@ export interface AboutData {
 export interface ContactLink {
   name: string;
   url: string;
-  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+  icon: React.ElementType; // Changed from React.FC<React.SVGProps<SVGSVGElement>>
 }
 
 export interface ContactData {
@@ -71,9 +74,7 @@ export interface ContactData {
   links: ContactLink[];
 }
 
-export interface HeroData {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  ctaLink: string;
+export interface ProjectDetailModalProps {
+  project: Project | null;
+  onClose: () => void;
 }

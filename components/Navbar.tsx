@@ -1,17 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import { NavLink as NavLinkType } from '../types';
 import { MenuIcon, XIcon } from './icons/MenuIcons';
 
+type ActivePage = 'home' | 'about';
+
 interface NavbarProps {
   navLinks: NavLinkType[];
+  activePage: ActivePage;
+  setActivePage: (page: ActivePage) => void;
+  setTargetScrollId: (id: string | null) => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ navLinks }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Navbar: React.FC<NavbarProps> = ({ navLinks, activePage, setActivePage, setTargetScrollId }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,76 +24,75 @@ const Navbar: React.FC<NavbarProps> = ({ navLinks }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
+  const handleNavLinkClick = (link: NavLinkType) => {
+    setIsMobileMenuOpen(false); // Close mobile menu on any link click
 
-  const NavItem: React.FC<{ link: NavLinkType; onClick?: () => void; className?: string }> = ({ link, onClick, className }) => {
-     // For external links or direct hash links on the same page (HomePage)
-    if (link.isExternal || (location.pathname === '/' && link.href.startsWith('/#'))) {
-      return (
-        <a
-          href={link.href.startsWith('/') ? link.href.substring(1) : link.href} // Use relative hash for same page
-          onClick={onClick}
-          className={className || "px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-blue-600 hover:text-white transition-colors"}
-          target={link.isExternal ? "_blank" : "_self"}
-          rel={link.isExternal ? "noopener noreferrer" : ""}
-        >
-          {link.label}
-        </a>
-      );
+    if (link.targetId === 'about-page') {
+      setActivePage('about');
+      setTargetScrollId(null);
+    } else if (link.targetId === 'home-intro') {
+      setActivePage('home');
+      setTargetScrollId('home-intro'); // Or null to scroll to top of home
+    } else { // For other sections like Projects, Resume, Contact
+      if (activePage !== 'home') {
+        setActivePage('home');
+        setTargetScrollId(link.targetId || null);
+      } else {
+        const element = document.getElementById(link.targetId || '');
+        element?.scrollIntoView({ behavior: 'smooth' });
+        setTargetScrollId(null);
+      }
     }
-    // For navigating to a hash on the HomePage from another page
-    return (
-      <Link
-        to={link.href}
-        onClick={onClick}
-        className={className || "px-3 py-2 rounded-md text-sm font-medium text-slate-200 hover:bg-blue-600 hover:text-white transition-colors"}
-      >
-        {link.label}
-      </Link>
-    );
   };
 
-
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isOpen ? 'bg-slate-800/95 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-neutral-800/80 shadow-lg backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link to="/#home" className="text-2xl font-bold text-blue-500" style={{fontFamily: "'Poppins', sans-serif"}}>
-            Portfolio {/* Or Your Name */}
-          </Link>
-          <div className="hidden md:flex space-x-1">
+          <button
+             onClick={() => handleNavLinkClick({ href: '#home-intro', label: 'Home', targetId: 'home-intro' })}
+             className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors" style={{fontFamily: "'Poppins', sans-serif"}}
+          >
+            Portfolio
+          </button>
+          <div className="hidden md:flex space-x-2">
             {navLinks.map((link) => (
-              <NavItem key={link.href} link={link} />
+              <button
+                key={link.href}
+                onClick={() => handleNavLinkClick(link)}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors
+                  ${(activePage === 'about' && link.targetId === 'about-page') || (activePage === 'home' && link.targetId !== 'about-page' && window.location.hash === link.href) // Basic active state for home sections
+                    ? 'bg-cyan-600 text-white' 
+                    : 'text-neutral-200 hover:bg-cyan-500 hover:text-white'
+                  }`}
+              >
+                {link.label}
+              </button>
             ))}
           </div>
           <div className="md:hidden flex items-center">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-slate-200 hover:text-blue-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-600"
-              aria-expanded={isOpen}
-              aria-controls="mobile-menu"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 rounded-md text-neutral-200 hover:text-cyan-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-500"
+              aria-label="Open menu"
             >
-             {isOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
+             {isMobileMenuOpen ? <XIcon className="h-6 w-6" /> : <MenuIcon className="h-6 w-6" />}
             </button>
           </div>
         </div>
       </div>
-      
       {/* Mobile menu */}
-      {isOpen && (
-        <div className="md:hidden bg-slate-800/95" id="mobile-menu">
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-neutral-800/95">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {navLinks.map((link) => (
-               <NavItem 
-                key={link.href} 
-                link={link} 
-                onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-blue-600 hover:text-white transition-colors"
-              />
+              <button
+                key={link.href}
+                onClick={() => handleNavLinkClick(link)}
+                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:bg-cyan-600 hover:text-white transition-colors"
+              >
+                {link.label}
+              </button>
             ))}
           </div>
         </div>

@@ -9,18 +9,40 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'], // Ensure Inter is primary sans-serif
-        poppins: ['Poppins', 'sans-serif'], // Add Poppins if used via utility class
+        sans: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
-        // You can extend Tailwind's color palette here if needed
-        // For example, if your scrollbar colors or specific brand colors
-        // are used frequently and you want to give them names.
-        // 'scrollbar-track': '#1e293b',
-        // 'scrollbar-thumb': '#38bdf8',
-        // 'scrollbar-thumb-hover': '#0ea5e9',
+        // Example: if we wanted a specific shade of cyan not in default
+        // 'custom-cyan': '#12a3b4',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        scaleUp: {
+          '0%': { transform: 'scale(0.95)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        scaleDown: {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0.95)', opacity: '0' },
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 0.3s ease-out forwards',
+        fadeOut: 'fadeOut 0.3s ease-in forwards',
+        scaleUp: 'scaleUp 0.3s ease-out forwards',
+        scaleDown: 'scaleDown 0.3s ease-in forwards',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    // require('@tailwindcss/line-clamp'), // Uncomment if you prefer the official plugin
+  ],
 }
