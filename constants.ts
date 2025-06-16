@@ -189,15 +189,15 @@ export const RESUME_DATA: ResumeData = {
     ],
     toolsAndPlatforms: ["Jira", "Confluence", "iOS", "Android", "Mobile Game Development Cycle"],
   },
-  resumePdfUrl: "/Portfolio/resume/Aravind_Nair_Resume.pdf", // User needs to place their PDF here and ensure path is correct for Vite base path
+  resumePdfUrl: "/resume/Aravind_Nair_Resume.pdf", // Path relative to public folder root
 };
 
 export const CONTACT_DATA: ContactData = {
   title: "Let's Connect",
-  email: "aravind.nair.portfolio@example.com", // User should replace
+  email: "aravindcoco16@gmail.com", 
   links: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/aravindnairtechartist", icon: LinkedinIcon }, // User should replace
-    { name: "ArtStation", url: "https://www.artstation.com/aravindnair", icon: ArtstationIcon }, // User should replace
-    { name: "Email", url: "mailto:aravind.nair.portfolio@example.com", icon: MailIcon }, // User should replace
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/evolveart/", icon: LinkedinIcon }, 
+    { name: "ArtStation", url: "https://www.artstation.com/aravindnair", icon: ArtstationIcon }, 
+    { name: "Email", url: "mailto:aravindcoco16@gmail.com", icon: MailIcon },
   ],
 };
