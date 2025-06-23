@@ -42,7 +42,7 @@ const PdfViewerModal: React.FC<PdfViewerModalProps> = ({ pdfUrl, isOpen, onClose
     }
   };
 
-  const fullPublicPdfUrl = `${import.meta.env.BASE_URL}${pdfUrl.startsWith('/') ? pdfUrl.substring(1) : pdfUrl}`;
+  const fullPublicPdfUrl = `${import.meta.env.BASE_URL}${pdfUrl.startsWith('/') ? pdfUrl.substring(1) : pdfUrl}#toolbar=0`;
 
 
   return (
@@ -80,7 +80,7 @@ const PdfViewerModal: React.FC<PdfViewerModalProps> = ({ pdfUrl, isOpen, onClose
         </div>
         <div className="p-3 sm:p-4 border-t border-neutral-700 flex justify-center">
           <a
-            href={fullPublicPdfUrl}
+            href={fullPublicPdfUrl} // The download link should still be the raw PDF URL without #toolbar=0 for actual download
             download={pdfUrl.substring(pdfUrl.lastIndexOf('/') + 1)} // Suggests filename like "Aravind_Nair_Resume.pdf"
             className="inline-flex items-center bg-cyan-600 hover:bg-cyan-500 text-white font-semibold py-2.5 px-6 rounded-lg shadow-md hover:shadow-cyan-500/40 transition-all duration-300 transform hover:scale-105"
             aria-label="Download PDF"
