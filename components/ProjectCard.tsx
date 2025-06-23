@@ -10,6 +10,11 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
+  // Use the first image from imageUrls for the card preview
+  const previewImageUrl = project.imageUrls && project.imageUrls.length > 0 
+    ? project.imageUrls[0] 
+    : 'https://picsum.photos/seed/defaultfallback/400/300'; // Fallback if no images
+
   return (
     <div 
       className="bg-neutral-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-500/20 flex flex-col cursor-pointer h-full border border-neutral-700/50"
@@ -19,7 +24,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
       tabIndex={0}
       aria-label={`View details for ${project.title}`}
     >
-      <img src={project.imageUrl} alt={project.title} className="w-full h-56 object-cover" />
+      <img src={previewImageUrl} alt={project.title} className="w-full h-56 object-cover" />
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-semibold text-cyan-400 mb-2" style={{fontFamily: "'Poppins', sans-serif"}}>{project.title}</h3>
         {project.companyName && (

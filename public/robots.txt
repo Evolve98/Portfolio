@@ -1,0 +1,35 @@
+# Disallow specific AI crawlers
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Anthropic-AI
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: ClaudeBot 
+Disallow: / # Assuming a future bot name for Claude
+
+User-agent: omgilibot
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+# General directive to block all other conforming crawlers from all content.
+# This reinforces the noindex meta tag for crawlers that primarily check robots.txt.
+User-agent: *
+Disallow: /

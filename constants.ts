@@ -28,7 +28,11 @@ const companyProjects: Project[] = [
     title: 'Puzzles and Cats',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/puzzlesandcatsdetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/puzzlesandcatsdetail1/800/600',
+        'https://picsum.photos/seed/puzzlesandcatsdetail2/800/600',
+        'https://picsum.photos/seed/puzzlesandcatsdetail3/800/600',
+    ],
     platform: "Android / iOS",
     description: "A mobile puzzle game blending match-3 mechanics with base defense. Players solve puzzles to earn resources, unlock upgrades, and deploy cat defenders to protect their territory.",
     roleAndContributions: [
@@ -48,7 +52,10 @@ const companyProjects: Project[] = [
     title: 'Looper',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/looperdetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/looperdetail1/800/600',
+        'https://picsum.photos/seed/looperdetail2/800/600',
+    ],
     platform: "Android / iOS",
     description: "A puzzle game reimagined with hybrid casual elements, featuring revamped visuals, improved UI, and engaging new tutorial flows.",
     roleAndContributions: [
@@ -67,7 +74,11 @@ const companyProjects: Project[] = [
     title: 'Triple Car (Color Match Mayhem)',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/triplecardetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/triplecardetail1/800/600',
+        'https://picsum.photos/seed/triplecardetail2/800/600',
+        'https://picsum.photos/seed/triplecardetail3/800/600',
+    ],
     platform: "Android / iOS",
     description: "A fast-paced, reflex-driven match game featuring colorful vehicle blocks and dynamic animations. Built for quick gameplay and satisfying transitions.",
     roleAndContributions: [
@@ -86,7 +97,9 @@ const companyProjects: Project[] = [
     title: 'Text and Fly',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/textandflydetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/textandflydetail1/800/600',
+    ],
     platform: "Android / iOS",
     description: "A word-based trivia game where players launch avatars by typing fast, correct answers. Features a progression system with unlockable islands and characters.",
     roleAndContributions: [
@@ -104,7 +117,10 @@ const companyProjects: Project[] = [
     title: 'Merge the Liquids',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/mergeliquidsdetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/mergeliquidsdetail1/800/600',
+        'https://picsum.photos/seed/mergeliquidsdetail2/800/600',
+    ],
     platform: "Android / iOS",
     description: "An atmospheric puzzle prototype focused on fluid mechanics and ambient environments, supported by stylized shaders and minimal UI.",
     roleAndContributions: [
@@ -122,7 +138,9 @@ const companyProjects: Project[] = [
     title: 'Survival Match',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/survivalmatchdetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/survivalmatchdetail1/800/600',
+    ],
     platform: "Android / iOS",
     description: "A match-3 game featuring continuous scene-to-scene transitions as players progress across islands. Focuses on immersion through timing and flow.",
     roleAndContributions: [
@@ -140,7 +158,12 @@ const companyProjects: Project[] = [
     title: 'Monster City Merge',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/monstercitydetail/800/600',
+    imageUrls: [
+        'https://picsum.photos/seed/monstercitydetail1/800/600',
+        'https://picsum.photos/seed/monstercitydetail2/800/600',
+        'https://picsum.photos/seed/monstercitydetail3/800/600',
+        'https://picsum.photos/seed/monstercitydetail4/800/600',
+    ],
     platform: "Android / iOS",
     description: "A destruction-based merge game where players evolve sea monsters and destroy cities. Built to test long-term progression and large-scale gameplay systems.",
     roleAndContributions: [

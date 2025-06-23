@@ -10,7 +10,7 @@ export interface Project {
   id: string;
   title: string;
   category: ProjectCategory;
-  imageUrl: string;
+  imageUrls: string[]; // Changed from imageUrl: string
   description: string; // Will store the "Summary (Main Page)"
   roleAndContributions: string[]; // Will store "My Role & Contributions" as a list
   platform: string; // e.g., "Android / iOS"

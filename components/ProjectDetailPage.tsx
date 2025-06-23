@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Project } from '../types';
 import { GlobeIcon } from './icons/SocialIcons'; // Re-using GlobeIcon
 import { PlayStoreIcon, AppStoreIcon } from './icons/StoreIcons';
+import ImageCarousel from './ImageCarousel'; // Import the new carousel component
 
 interface ProjectDetailPageProps {
   project: Project;
@@ -35,11 +36,14 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, onBack }
       </div>
 
       <article className="bg-neutral-800 p-6 sm:p-8 md:p-10 rounded-xl shadow-2xl border border-neutral-700/50">
-        <img 
-          src={project.imageUrl} 
-          alt={project.title} 
-          className="w-full h-auto max-h-[500px] object-contain rounded-lg mb-6 sm:mb-8 shadow-lg bg-neutral-700/30" 
-        />
+        
+        {project.imageUrls && project.imageUrls.length > 0 ? (
+          <ImageCarousel imageUrls={project.imageUrls} altText={project.title} />
+        ) : (
+          <div className="w-full h-auto max-h-[500px] object-contain rounded-lg mb-6 sm:mb-8 shadow-lg bg-neutral-700/30 flex items-center justify-center aspect-[16/10]">
+            <p className="text-neutral-400">No image available</p>
+          </div>
+        )}
         
         <h1 id={`project-title-${project.id}`} className="text-3xl sm:text-4xl lg:text-5xl font-bold text-cyan-400 mb-3" style={{fontFamily: "'Poppins', sans-serif"}}>
           {project.title}
