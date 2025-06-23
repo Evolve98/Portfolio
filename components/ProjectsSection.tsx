@@ -2,31 +2,22 @@
 import React, { useState } from 'react';
 import Section from './Section';
 import ProjectCard from './ProjectCard';
-import ProjectDetailModal from './ProjectDetailModal';
 import { Project, ProjectCategory } from '../types';
 
 interface ProjectsSectionProps {
   id: string;
   projects: Project[];
+  onProjectSelect: (project: Project) => void; // New prop to handle navigation
 }
 
-const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects }) => {
+const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects, onProjectSelect }) => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'All'>('All');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const categories = ['All', ...Object.values(ProjectCategory)];
 
   const filteredProjects = activeCategory === 'All'
     ? projects
     : projects.filter(p => p.category === activeCategory);
-
-  const openModal = (project: Project) => {
-    setSelectedProject(project);
-  };
-
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
 
   return (
     <Section id={id} title="My Work">
@@ -51,14 +42,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects }) => {
             <ProjectCard 
               key={project.id} 
               project={project} 
-              onClick={() => openModal(project)}
+              onClick={() => onProjectSelect(project)} // Updated onClick handler
             />
           ))}
         </div>
       ) : (
         <p className="text-center text-neutral-400 text-lg">No projects found in this category.</p>
       )}
-      <ProjectDetailModal project={selectedProject} onClose={closeModal} />
+      {/* ProjectDetailModal is removed */}
     </Section>
   );
 };

@@ -11,9 +11,11 @@ export interface Project {
   title: string;
   category: ProjectCategory;
   imageUrl: string;
-  description: string;
-  technologies: string[];
-  role?: string;
+  description: string; // Will store the "Summary (Main Page)"
+  roleAndContributions: string[]; // Will store "My Role & Contributions" as a list
+  platform: string; // e.g., "Android / iOS"
+  technologies: string[]; // Kept for data completeness, but will be omitted from detail view as requested
+  role?: string; // Will be unused, but kept optional for now
   projectUrl?: string; // General project link, e.g., for personal projects
   playStoreUrl?: string; // Link to Google Play Store
   appStoreUrl?: string; // Link to Apple App Store
@@ -74,7 +76,8 @@ export interface ContactData {
   links: ContactLink[];
 }
 
-export interface ProjectDetailModalProps {
-  project: Project | null;
-  onClose: () => void;
-}
+// ProjectDetailModalProps is removed as the modal component is being deleted.
+// export interface ProjectDetailModalProps {
+//   project: Project | null;
+//   onClose: () => void;
+// }

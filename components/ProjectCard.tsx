@@ -28,7 +28,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
         {!project.companyName && (
           <p className="text-xs text-neutral-400 mb-1 font-medium">{project.category}</p>
         )}
-        {project.role && <p className="text-sm text-neutral-300 mb-2 italic">{project.role}</p>}
+        {/* project.role display removed */}
         
         <p className="text-neutral-300 text-sm leading-relaxed mb-4 flex-grow line-clamp-3" title={project.description}>
           {project.description || "No detailed description available for this project yet. Click to learn more!"}

@@ -28,11 +28,18 @@ const companyProjects: Project[] = [
     title: 'Puzzles and Cats',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/puzzlesandcatsgame/600/400', // Placeholder image - User should replace
-    description: "Spearheaded UI art and technical implementation for 'Puzzles and Cats,' a captivating match-3 adventure. My role encompassed designing intuitive UI/UX, crafting dynamic VFX for puzzle interactions, developing custom shaders for enhanced visual fidelity, and optimizing all art assets for seamless performance across diverse mobile devices. Worked in tandem with design and development teams to realize the game's delightful art style and engaging player experience.",
+    imageUrl: 'https://picsum.photos/seed/puzzlesandcatsdetail/800/600',
+    platform: "Android / iOS",
+    description: "A mobile puzzle game blending match-3 mechanics with base defense. Players solve puzzles to earn resources, unlock upgrades, and deploy cat defenders to protect their territory.",
+    roleAndContributions: [
+      "Implemented and animated UI screens including home, shop, and popups.",
+      "Integrated 3D defender characters and Spine 2D enemies into Unity.",
+      "Rigged enemy and secondary characters in Spine for seamless in-game use.",
+      "Helped unify the visual direction from an earlier mixed 2D/3D layout.",
+      "Collaborated closely with artists, designers, and developers to ensure consistent performance."
+    ],
     technologies: ["Unity", "Blender", "Photoshop", "Spine", "Substance Painter"],
-    role: "Lead UI/Technical Artist", // User can refine
-    releaseDate: "2024-06", 
+    releaseDate: "2024-06",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kwalee.puzzlesandcatsnew&hl=en_IN",
     appStoreUrl: "https://apps.apple.com/in/app/puzzles-cats/id6738574871"
   },
@@ -41,23 +48,35 @@ const companyProjects: Project[] = [
     title: 'Looper',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/loopergame/600/400', // Placeholder image - User should replace
-    description: "Contributed to Looper, focusing on technical art aspects to ensure smooth performance and visual appeal. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/looperdetail/800/600',
+    platform: "Android / iOS",
+    description: "A puzzle game reimagined with hybrid casual elements, featuring revamped visuals, improved UI, and engaging new tutorial flows.",
+    roleAndContributions: [
+      "Redesigned UI screens and tutorial flows to fit a hybrid casual audience.",
+      "Added VFX to enhance feedback during gameplay and transitions.",
+      "Created and exported SVG-based level assets for server use.",
+      "Helped explore updated UI/UX concepts during early development."
+    ],
     technologies: ["Unity", "Photoshop", "After Effects"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2024-04",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kwalee.looper&hl=en_IN",
     appStoreUrl: "https://apps.apple.com/us/app/looper/id1370475630"
   },
   {
     id: 'company-proj-triplecar',
-    title: 'Triple Car (proto)',
+    title: 'Triple Car (Color Match Mayhem)',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/triplecarproto/600/400', // Placeholder image - User should replace
-    description: "Worked on the 'Triple Car' prototype, contributing to its technical art development. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/triplecardetail/800/600',
+    platform: "Android / iOS",
+    description: "A fast-paced, reflex-driven match game featuring colorful vehicle blocks and dynamic animations. Built for quick gameplay and satisfying transitions.",
+    roleAndContributions: [
+      "Designed popup UI screens and screen transitions.",
+      "Developed modular car entry/exit animations.",
+      "Profiled and optimized performance by reducing draw calls and UI file sizes.",
+      "Created scalable, easy-to-read UI icons for small screens."
+    ],
     technologies: ["Unity", "Photoshop", "Blender"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2024-02",
     playStoreUrl: "",
     appStoreUrl: ""
@@ -67,23 +86,33 @@ const companyProjects: Project[] = [
     title: 'Text and Fly',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/textandflygame/600/400', // Placeholder image - User should replace
-    description: "Contributed to 'Text and Fly', a mobile game, focusing on technical art aspects. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/textandflydetail/800/600',
+    platform: "Android / iOS",
+    description: "A word-based trivia game where players launch avatars by typing fast, correct answers. Features a progression system with unlockable islands and characters.",
+    roleAndContributions: [
+      "Overhauled UI as part of the shift to hybrid casual gameplay.",
+      "Designed island meta screens and new characters while retaining the game’s original theme.",
+      "Optimized gameplay and UI assets for mobile performance."
+    ],
     technologies: ["Unity", "Photoshop", "Blender"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2023-10",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.cheddarbox.slingshotquiz&hl=en_IN",
     appStoreUrl: "https://apps.apple.com/us/app/text-fly/id1670392605"
   },
   {
     id: 'company-proj-mergetheliquids',
-    title: 'Merge the Liquids (proto)',
+    title: 'Merge the Liquids',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/mergeliquidsproto/600/400', // Placeholder image - User should replace
-    description: "Involved in the prototyping phase of 'Merge the Liquids', focusing on technical art implementation. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/mergeliquidsdetail/800/600',
+    platform: "Android / iOS",
+    description: "An atmospheric puzzle prototype focused on fluid mechanics and ambient environments, supported by stylized shaders and minimal UI.",
+    roleAndContributions: [
+      "Created the core UI layout and menu system.",
+      "Developed custom shaders (e.g., stylized grass) to enhance environmental mood.",
+      "Tuned lighting for visual polish without sacrificing performance."
+    ],
     technologies: ["Unity", "Photoshop", "Blender"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2023-06",
     playStoreUrl: "",
     appStoreUrl: ""
@@ -93,10 +122,15 @@ const companyProjects: Project[] = [
     title: 'Survival Match',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/survivalmatchgame/600/400', // Placeholder image - User should replace
-    description: "Worked on 'Survival Match', contributing technical art expertise. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/survivalmatchdetail/800/600',
+    platform: "Android / iOS",
+    description: "A match-3 game featuring continuous scene-to-scene transitions as players progress across islands. Focuses on immersion through timing and flow.",
+    roleAndContributions: [
+      "Managed level-to-level transitions using Unity Timeline.",
+      "Synced scene changes and animations with gameplay rhythm.",
+      "Coordinated closely with developers and designers to perfect timing and flow."
+    ],
     technologies: ["Unity", "Photoshop", "Blender"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2023-02",
     playStoreUrl: "",
     appStoreUrl: ""
@@ -106,10 +140,16 @@ const companyProjects: Project[] = [
     title: 'Monster City Merge',
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
-    imageUrl: 'https://picsum.photos/seed/monstercitymerge/600/400', // Placeholder image - User should replace
-    description: "Contributed to 'Monster City Merge', focusing on technical art solutions. (User: Please add a more detailed description of your role and contributions.)",
+    imageUrl: 'https://picsum.photos/seed/monstercitydetail/800/600',
+    platform: "Android / iOS",
+    description: "A destruction-based merge game where players evolve sea monsters and destroy cities. Built to test long-term progression and large-scale gameplay systems.",
+    roleAndContributions: [
+      "Modeled 3D assets for islands, buildings, and sea monsters (including scrapped “Tornado” units).",
+      "Built the initial playable prototype with merge and destruction mechanics.",
+      "Led asset optimization by simplifying rigs, compressing textures, and balancing detail with performance.",
+      "Collaborated with design and programming teams to manage production complexity."
+    ],
     technologies: ["Unity", "Photoshop", "Blender"],
-    role: "Technical Artist", // User can refine
     releaseDate: "2022-10",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.cheddarbox.seamonstersunset&hl=en_IN",
     appStoreUrl: "https://apps.apple.com/us/app/monster-city-merge/id1637644545"
@@ -124,7 +164,7 @@ export const PROJECTS_DATA: Project[] = [...companyProjects, ...personalProjects
   }
   const dateA = a.releaseDate ? new Date(a.releaseDate.includes('-') ? a.releaseDate : `${a.releaseDate}-01-01`).getTime() : 0;
   const dateB = b.releaseDate ? new Date(b.releaseDate.includes('-') ? b.releaseDate : `${b.releaseDate}-01-01`).getTime() : 0;
-  return dateB - dateA;
+  return dateB - dateA; // Sort by date descending
 });
 
 export const RESUME_DATA: ResumeData = {
@@ -194,10 +234,10 @@ export const RESUME_DATA: ResumeData = {
 
 export const CONTACT_DATA: ContactData = {
   title: "Let's Connect",
-  email: "aravindcoco16@gmail.com", 
+  email: "aravindcoco16@gmail.com",
   links: [
-    { name: "LinkedIn", url: "https://www.linkedin.com/in/evolveart/", icon: LinkedinIcon }, 
-    { name: "ArtStation", url: "https://www.artstation.com/aravindnair", icon: ArtstationIcon }, 
+    { name: "LinkedIn", url: "https://www.linkedin.com/in/evolveart/", icon: LinkedinIcon },
+    { name: "ArtStation", url: "https://www.artstation.com/aravindnair", icon: ArtstationIcon },
     { name: "Email", url: "mailto:aravindcoco16@gmail.com", icon: MailIcon },
   ],
 };

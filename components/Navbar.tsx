@@ -1,56 +1,85 @@
 
 import React, { useState, useEffect } from 'react';
 import { NavLink as NavLinkType } from '../types';
+import { ActiveView } from '../App'; // Import ActiveView
 import { MenuIcon, XIcon } from './icons/MenuIcons';
-
-type ActivePage = 'home' | 'about';
 
 interface NavbarProps {
   navLinks: NavLinkType[];
-  activePage: ActivePage;
-  setActivePage: (page: ActivePage) => void;
-  setTargetScrollId: (id: string | null) => void;
+  activeView: ActiveView;
+  setActiveView: (view: ActiveView, targetId?: string | null) => void;
+  setTargetScrollId: (id: string | null) => void; // Keep for direct scroll on home
 }
 
-const Navbar: React.FC<NavbarProps> = ({ navLinks, activePage, setActivePage, setTargetScrollId }) => {
+const Navbar: React.FC<NavbarProps> = ({ navLinks, activeView, setActiveView, setTargetScrollId }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [currentHash, setCurrentHash] = useState(typeof window !== 'undefined' ? window.location.hash : '');
+
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash);
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('hashchange', handleHashChange);
+    
+    // Initial hash
+    if (typeof window !== 'undefined') {
+        setCurrentHash(window.location.hash);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('hashchange', handleHashChange);
+    };
   }, []);
 
   const handleNavLinkClick = (link: NavLinkType) => {
-    setIsMobileMenuOpen(false); // Close mobile menu on any link click
+    setIsMobileMenuOpen(false); 
 
     if (link.targetId === 'about-page') {
-      setActivePage('about');
-      setTargetScrollId(null);
+      setActiveView('about');
     } else if (link.targetId === 'home-intro') {
-      setActivePage('home');
-      setTargetScrollId('home-intro'); // Or null to scroll to top of home
+      setActiveView('home', 'home-intro');
     } else { // For other sections like Projects, Resume, Contact
-      if (activePage !== 'home') {
-        setActivePage('home');
-        setTargetScrollId(link.targetId || null);
+      if (activeView !== 'home') {
+        setActiveView('home', link.targetId || null);
       } else {
+        // If already on home, just scroll
         const element = document.getElementById(link.targetId || '');
-        element?.scrollIntoView({ behavior: 'smooth' });
-        setTargetScrollId(null);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          if (link.href) window.location.hash = link.href; // Update hash for active state
+        }
+        setTargetScrollId(null); // Reset internal target scroll ID from App
       }
     }
   };
+  
+  const getIsLinkActive = (link: NavLinkType): boolean => {
+    if (activeView === 'about' && link.targetId === 'about-page') return true;
+    if (activeView === 'projectDetail' && link.targetId === 'projects') return true;
+    if (activeView === 'home') {
+        // For home, compare targetId with the targetScrollId or current hash
+        // This logic can be tricky if targetScrollId is transient.
+        // Relying on hash is more stable for sections.
+        return link.href === currentHash && link.targetId !== 'about-page';
+    }
+    return false;
+  };
+
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen ? 'bg-neutral-800/80 shadow-lg backdrop-blur-lg' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <button
-             onClick={() => handleNavLinkClick({ href: '#home-intro', label: 'Home', targetId: 'home-intro' })}
+             onClick={() => setActiveView('home', 'home-intro')}
              className="text-2xl font-bold text-cyan-400 hover:text-cyan-300 transition-colors" style={{fontFamily: "'Poppins', sans-serif"}}
           >
             Portfolio
@@ -61,7 +90,7 @@ const Navbar: React.FC<NavbarProps> = ({ navLinks, activePage, setActivePage, se
                 key={link.href}
                 onClick={() => handleNavLinkClick(link)}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors
-                  ${(activePage === 'about' && link.targetId === 'about-page') || (activePage === 'home' && link.targetId !== 'about-page' && window.location.hash === link.href) // Basic active state for home sections
+                  ${getIsLinkActive(link)
                     ? 'bg-cyan-600 text-white' 
                     : 'text-neutral-200 hover:bg-cyan-500 hover:text-white'
                   }`}
@@ -89,7 +118,11 @@ const Navbar: React.FC<NavbarProps> = ({ navLinks, activePage, setActivePage, se
               <button
                 key={link.href}
                 onClick={() => handleNavLinkClick(link)}
-                className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-neutral-200 hover:bg-cyan-600 hover:text-white transition-colors"
+                className={`block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors
+                ${getIsLinkActive(link)
+                  ? 'bg-cyan-600 text-white' 
+                  : 'text-neutral-200 hover:bg-cyan-600 hover:text-white'
+                }`}
               >
                 {link.label}
               </button>
