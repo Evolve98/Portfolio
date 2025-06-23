@@ -1,14 +1,14 @@
-# Run and deploy your AI Studio app
+Technical Artist Portfolio
 
-This contains everything you need to run your app locally.
+This is the source code for my personal portfolio site hosted on GitHub Pages:  
+➡️ [evolve98.github.io/Portfolio](https://evolve98.github.io/Portfolio)
 
-## Run Locally
+I’m a game artist and technical artist with 4 years of experience working on hybrid casual and casual mobile games using Unity, Blender, Spine, and Adobe tools.
 
-**Prerequisites:**  Node.js
+This site showcases my work in shaders, VFX, optimization, and art pipelines.
 
+---
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+📌 Built with:  
+- HTML / CSS / JavaScript  
+- Hosted using GitHub Pages
