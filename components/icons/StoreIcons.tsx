@@ -6,9 +6,9 @@ interface ImageIconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const PlayStoreIcon: React.FC<ImageIconProps> = ({ className, ...rest }) => (
-  <img src="/Portfolio/icons/playstore.png" alt="Google Play Store" className={`${className || ''} object-contain`} {...rest} />
+  <img src="/icons/playstore.png" alt="Google Play Store" className={`${className || ''} object-contain`} {...rest} />
 );
 
 export const AppStoreIcon: React.FC<ImageIconProps> = ({ className, ...rest }) => (
-  <img src="/Portfolio/icons/appstore.png" alt="Apple App Store" className={`${className || ''} object-contain`} {...rest} />
+  <img src="/icons/appstore.png" alt="Apple App Store" className={`${className || ''} object-contain`} {...rest} />
 );

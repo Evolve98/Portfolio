@@ -19,7 +19,7 @@ export const ABOUT_DATA: AboutData = {
     "I have 4 years of experience creating game-ready art and implementing it directly into Unity including animation systems, VFX, and performance optimization.",
     "In my free time, I enjoy creating stylized shaders and recreating visual effects from other games to better understand their workflows and techniques."
   ],
-  profileImageUrl: 'https://picsum.photos/seed/techartistprofile/400/400', // Placeholder image - User should replace
+  profileImageUrl: '/images/profile.jpg', // Updated to local path
 };
 
 const companyProjects: Project[] = [
@@ -29,9 +29,9 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/puzzlesandcatsdetail1/800/600',
-        'https://picsum.photos/seed/puzzlesandcatsdetail2/800/600',
-        'https://picsum.photos/seed/puzzlesandcatsdetail3/800/600',
+        '/images/projects/puzzlesandcats/01.jpg',
+        '/images/projects/puzzlesandcats/02.jpg',
+        '/images/projects/puzzlesandcats/03.jpg',
     ],
     platform: "Android / iOS",
     description: "A mobile puzzle game blending match-3 mechanics with base defense. Players solve puzzles to earn resources, unlock upgrades, and deploy cat defenders to protect their territory.",
@@ -53,8 +53,8 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/looperdetail1/800/600',
-        'https://picsum.photos/seed/looperdetail2/800/600',
+        '/images/projects/looper/01.jpg',
+        '/images/projects/looper/02.jpg',
     ],
     platform: "Android / iOS",
     description: "A puzzle game reimagined with hybrid casual elements, featuring revamped visuals, improved UI, and engaging new tutorial flows.",
@@ -75,9 +75,9 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/triplecardetail1/800/600',
-        'https://picsum.photos/seed/triplecardetail2/800/600',
-        'https://picsum.photos/seed/triplecardetail3/800/600',
+        '/images/projects/triplecar/01.jpg',
+        '/images/projects/triplecar/02.jpg',
+        '/images/projects/triplecar/03.jpg',
     ],
     platform: "Android / iOS",
     description: "A fast-paced, reflex-driven match game featuring colorful vehicle blocks and dynamic animations. Built for quick gameplay and satisfying transitions.",
@@ -98,7 +98,7 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/textandflydetail1/800/600',
+        '/images/projects/textandfly/01.jpg',
     ],
     platform: "Android / iOS",
     description: "A word-based trivia game where players launch avatars by typing fast, correct answers. Features a progression system with unlockable islands and characters.",
@@ -118,8 +118,8 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/mergeliquidsdetail1/800/600',
-        'https://picsum.photos/seed/mergeliquidsdetail2/800/600',
+        '/images/projects/mergetheliquids/01.jpg',
+        '/images/projects/mergetheliquids/02.jpg',
     ],
     platform: "Android / iOS",
     description: "An atmospheric puzzle prototype focused on fluid mechanics and ambient environments, supported by stylized shaders and minimal UI.",
@@ -139,7 +139,7 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/survivalmatchdetail1/800/600',
+        '/images/projects/survivalmatch/01.jpg',
     ],
     platform: "Android / iOS",
     description: "A match-3 game featuring continuous scene-to-scene transitions as players progress across islands. Focuses on immersion through timing and flow.",
@@ -159,10 +159,10 @@ const companyProjects: Project[] = [
     category: ProjectCategory.COMPANY,
     companyName: "Kwalee",
     imageUrls: [
-        'https://picsum.photos/seed/monstercitydetail1/800/600',
-        'https://picsum.photos/seed/monstercitydetail2/800/600',
-        'https://picsum.photos/seed/monstercitydetail3/800/600',
-        'https://picsum.photos/seed/monstercitydetail4/800/600',
+        '/images/projects/monstercitymerge/01.jpg',
+        '/images/projects/monstercitymerge/02.jpg',
+        '/images/projects/monstercitymerge/03.jpg',
+        '/images/projects/monstercitymerge/04.jpg',
     ],
     platform: "Android / iOS",
     description: "A destruction-based merge game where players evolve sea monsters and destroy cities. Built to test long-term progression and large-scale gameplay systems.",

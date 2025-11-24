@@ -1,9 +1,10 @@
 
 import React from 'react';
 import Section from './Section'; // Re-use Section for sub-sections
-import { AboutData, ResumeData, ExperienceItem, EducationItem } from '../types';
-import { BriefcaseIcon, AcademicCapIcon, SparklesIcon } from './icons/ResumeIcons'; // Re-use ResumeIcons
+import { AboutData, ResumeData } from '../types';
+import { SparklesIcon } from './icons/ResumeIcons'; // Re-use ResumeIcons
 import { LinkIcon } from './icons/SocialIcons'; // Corrected import for LinkIcon
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface AboutPageProps {
   id: string;
@@ -12,11 +13,16 @@ interface AboutPageProps {
 }
 
 const AboutPage: React.FC<AboutPageProps> = ({ id, aboutData, resumeData }) => {
+  const [introRef, isIntroVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
+  const [expRef, isExpVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
+  const [eduRef, isEduVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
+  const [skillsRef, isSkillsVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
+
   return (
-    <div id={id} className="pt-8 pb-16 bg-neutral-900"> {/* Added padding top and bottom */}
+    <div id={id} className="pt-8 pb-16 bg-neutral-900 animate-fadeIn"> {/* Added padding top and bottom */}
       {/* Full Introduction Section */}
       <Section id="about-intro-full" title="About Me" className="!pt-0"> {/* Override Section's default top padding */}
-        <div className="max-w-3xl mx-auto text-neutral-300 space-y-5">
+        <div ref={introRef} className={`max-w-3xl mx-auto text-neutral-300 space-y-5 ${isIntroVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8">
             <img 
               src={aboutData.profileImageUrl} 
@@ -38,7 +44,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ id, aboutData, resumeData }) => {
 
       {/* Experience Section */}
       <Section id="about-experience" title="Experience">
-        <div className="max-w-3xl mx-auto">
+        <div ref={expRef} className={`max-w-3xl mx-auto ${isExpVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
         {resumeData.experience.map((item, index) => (
           <div key={index} className="mb-8 p-5 border-l-4 border-cyan-600 bg-neutral-800 rounded-r-lg shadow-lg">
             <h4 className="text-xl font-semibold text-neutral-100">{item.role}</h4>
@@ -62,7 +68,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ id, aboutData, resumeData }) => {
 
       {/* Education Section */}
       <Section id="about-education" title="Education">
-         <div className="max-w-3xl mx-auto">
+         <div ref={eduRef} className={`max-w-3xl mx-auto ${isEduVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
         {resumeData.education.map((item, index) => (
           <div key={index} className="mb-6 p-5 border-l-4 border-purple-600 bg-neutral-800 rounded-r-lg shadow-lg">
             <h4 className="text-xl font-semibold text-neutral-100">{item.degree}</h4>
@@ -75,7 +81,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ id, aboutData, resumeData }) => {
 
       {/* Skills Section */}
       <Section id="about-skills" title="Skills">
-        <div className="max-w-4xl mx-auto bg-neutral-800 p-6 sm:p-8 rounded-xl shadow-xl border border-neutral-700/50">
+        <div ref={skillsRef} className={`max-w-4xl mx-auto bg-neutral-800 p-6 sm:p-8 rounded-xl shadow-xl border border-neutral-700/50 ${isSkillsVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
           <div className="grid md:grid-cols-3 gap-x-8 gap-y-8">
             <div>
               <h4 className="text-xl font-semibold text-neutral-100 mb-4 flex items-center"><SparklesIcon className="w-6 h-6 mr-2 text-cyan-400"/>Technical Skills</h4>

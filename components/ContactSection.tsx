@@ -3,11 +3,17 @@ import React from 'react';
 import Section from './Section';
 import { ContactData } from '../types';
 import { MailIcon } from './icons/SocialIcons';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 const ContactSection: React.FC<{ id: string; contactData: ContactData }> = ({ id, contactData }) => {
+  const [contentRef, isContentVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
+
   return (
     <Section id={id} title={contactData.title}>
-      <div className="max-w-xl mx-auto text-center">
+      <div
+        ref={contentRef}
+        className={`max-w-xl mx-auto text-center ${isContentVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
+      >
         <p className="text-neutral-300 text-lg mb-10 leading-relaxed">
           I'm always open to discussing new projects, creative ideas, or opportunities to be part of an innovative team. Feel free to reach out!
         </p>

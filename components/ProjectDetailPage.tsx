@@ -22,7 +22,7 @@ const ProjectDetailPage: React.FC<ProjectDetailPageProps> = ({ project, onBack }
     : 'N/A';
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 animate-fadeIn">
       <div className="mb-8">
         <button
           onClick={onBack}

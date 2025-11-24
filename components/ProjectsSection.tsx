@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Section from './Section';
 import ProjectCard from './ProjectCard';
 import { Project, ProjectCategory } from '../types';
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 interface ProjectsSectionProps {
   id: string;
@@ -12,6 +13,7 @@ interface ProjectsSectionProps {
 
 const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects, onProjectSelect }) => {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | 'All'>('All');
+  const [gridRef, isGridVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.1, triggerOnce: true });
 
   const categories = ['All', ...Object.values(ProjectCategory)];
 
@@ -37,12 +39,14 @@ const ProjectsSection: React.FC<ProjectsSectionProps> = ({ id, projects, onProje
         ))}
       </div>
       {filteredProjects.length > 0 ? (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
-          {filteredProjects.map((project) => (
+        <div ref={gridRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+          {filteredProjects.map((project, index) => (
             <ProjectCard 
               key={project.id} 
               project={project} 
               onClick={() => onProjectSelect(project)} // Updated onClick handler
+              isVisible={isGridVisible}
+              index={index}
             />
           ))}
         </div>

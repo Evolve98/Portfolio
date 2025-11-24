@@ -32,7 +32,7 @@ body {
   background: #0891b2; /* cyan-600 */
 }
 
-/* Keyframes for modal animations */
+/* Keyframes for animations */
 @layer utilities {
   @keyframes fadeIn {
     from { opacity: 0; }
@@ -50,6 +50,21 @@ body {
     from { transform: scale(1); opacity: 1; }
     to { transform: scale(0.95); opacity: 0; }
   }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
 
   .animate-fadeIn {
     animation: fadeIn 0.3s ease-out forwards;
@@ -63,6 +78,26 @@ body {
   .animate-scaleDown {
     animation: scaleDown 0.3s ease-in forwards;
   }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  .animate-shimmer {
+    background: linear-gradient(to right, 
+      theme('colors.neutral.800') 8%, 
+      theme('colors.neutral.700') 18%, 
+      theme('colors.neutral.800') 33%
+    );
+    background-size: 2000px 100%;
+    animation: shimmer 1.5s infinite linear;
+  }
+  
+  /* Custom animation delay utilities */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+
 
   /* Custom line-clamp utility if not using Tailwind plugin */
   .line-clamp-3 {
@@ -70,5 +105,26 @@ body {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
+  }
+
+  /* Accessibility: Skip to content link */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: theme('colors.cyan.600');
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    transition: top 0.3s;
+  }
+  .skip-link:focus {
+    top: 0;
+  }
+
+  /* Tactile press effect for buttons */
+  button:active, a:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease-out;
   }
 }

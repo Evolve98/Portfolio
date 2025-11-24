@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import ImageWithLoader from './ImageWithLoader';
 
 interface ImageCarouselProps {
   imageUrls: string[];
@@ -20,6 +21,7 @@ const ChevronRightIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 
 const ImageCarousel: React.FC<ImageCarouselProps> = ({ imageUrls, altText }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
 
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;
@@ -38,12 +40,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ imageUrls, altText }) => 
   };
 
   useEffect(() => {
-    if (imageUrls.length === 0) return;
+    if (isPaused || imageUrls.length <= 1) return;
     const timer = setTimeout(() => {
         goToNext();
     }, 5000); // Change slide every 5 seconds
     return () => clearTimeout(timer);
-  }, [currentIndex, imageUrls.length]);
+  }, [currentIndex, isPaused, imageUrls.length]);
 
 
   if (!imageUrls || imageUrls.length === 0) {
@@ -51,17 +53,22 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ imageUrls, altText }) => 
   }
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto aspect-[16/10] overflow-hidden rounded-lg shadow-xl mb-6 sm:mb-8 bg-neutral-700/30">
+    <div 
+      className="relative w-full max-w-3xl mx-auto aspect-[16/10] overflow-hidden rounded-lg shadow-xl mb-6 sm:mb-8"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
       {imageUrls.map((url, index) => (
         <div
-          key={url}
+          key={url + index}
           className={`absolute top-0 left-0 w-full h-full transition-opacity duration-700 ease-in-out ${index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
+          aria-hidden={index !== currentIndex}
         >
-          <img
+          <ImageWithLoader
             src={url}
             alt={`${altText} - Slide ${index + 1}`}
-            className="w-full h-full object-contain" // Changed to object-contain
+            className="w-full h-full object-contain"
           />
         </div>
       ))}

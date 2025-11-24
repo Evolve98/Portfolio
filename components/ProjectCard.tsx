@@ -3,28 +3,39 @@ import React from 'react';
 import { Project } from '../types';
 import { GlobeIcon } from './icons/SocialIcons';
 import { PlayStoreIcon, AppStoreIcon } from './icons/StoreIcons';
+import ImageWithLoader from './ImageWithLoader';
 
 interface ProjectCardProps {
   project: Project;
   onClick: () => void;
+  isVisible: boolean;
+  index: number;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
-  // Use the first image from imageUrls for the card preview
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, isVisible, index }) => {
   const previewImageUrl = project.imageUrls && project.imageUrls.length > 0 
     ? project.imageUrls[0] 
-    : 'https://picsum.photos/seed/defaultfallback/400/300'; // Fallback if no images
+    : '/images/placeholder.png'; // A default placeholder
+
+  const delay = index * 100; // 100ms stagger delay
 
   return (
     <div 
-      className="bg-neutral-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-500/20 flex flex-col cursor-pointer h-full border border-neutral-700/50"
+      className={`bg-neutral-800 rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:scale-[1.03] hover:shadow-cyan-500/20 flex flex-col cursor-pointer h-full border border-neutral-700/50 ${isVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
+      style={{ animationDelay: `${delay}ms` }}
       onClick={onClick}
       onKeyPress={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
       role="button"
       tabIndex={0}
       aria-label={`View details for ${project.title}`}
     >
-      <img src={previewImageUrl} alt={project.title} className="w-full h-56 object-cover" />
+      <div className="w-full aspect-[3/4] overflow-hidden">
+        <ImageWithLoader
+          src={previewImageUrl}
+          alt={project.title}
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div className="p-6 flex flex-col flex-grow">
         <h3 className="text-xl font-semibold text-cyan-400 mb-2" style={{fontFamily: "'Poppins', sans-serif"}}>{project.title}</h3>
         {project.companyName && (
@@ -33,7 +44,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
         {!project.companyName && (
           <p className="text-xs text-neutral-400 mb-1 font-medium">{project.category}</p>
         )}
-        {/* project.role display removed */}
         
         <p className="text-neutral-300 text-sm leading-relaxed mb-4 flex-grow line-clamp-3" title={project.description}>
           {project.description || "No detailed description available for this project yet. Click to learn more!"}

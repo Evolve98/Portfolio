@@ -6,15 +6,15 @@ interface ImageIconProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const LinkedinIcon: React.FC<ImageIconProps> = ({ className, ...rest }) => (
-  <img src="/Portfolio/icons/linkedin.png" alt="LinkedIn" className={`${className || ''} object-contain`} {...rest} />
+  <img src="/icons/linkedin.png" alt="LinkedIn" className={`${className || ''} object-contain`} {...rest} />
 );
 
 export const ArtstationIcon: React.FC<ImageIconProps> = ({ className, ...rest }) => (
-  <img src="/Portfolio/icons/artstation.png" alt="ArtStation" className={`${className || ''} object-contain`} {...rest} />
+  <img src="/icons/artstation.png" alt="ArtStation" className={`${className || ''} object-contain`} {...rest} />
 );
 
 export const MailIcon: React.FC<ImageIconProps> = ({ className, ...rest }) => (
-  <img src="/Portfolio/icons/mail.png" alt="Email" className={`${className || ''} object-contain`} {...rest} />
+  <img src="/icons/mail.png" alt="Email" className={`${className || ''} object-contain`} {...rest} />
 );
 
 // SVGs that are not being replaced

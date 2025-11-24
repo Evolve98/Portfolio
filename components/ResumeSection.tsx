@@ -3,6 +3,7 @@ import Section from './Section';
 import { ResumeData } from '../types';
 // import { EyeIcon } from './icons/ResumeIcons'; // Removed this line as EyeIcon is not exported
 import PdfViewerModal from './PdfViewerModal'; // Import the new modal
+import useIntersectionObserver from './hooks/useIntersectionObserver';
 
 // Let's add an EyeIcon to ResumeIcons if it doesn't exist, or reuse DownloadIcon
 // For now, let's assume we want a more specific "View" icon, or simply change text.
@@ -15,6 +16,7 @@ import { DownloadIcon as ActionIcon } from './icons/ResumeIcons';
 
 const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, resumeData }) => {
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
+  const [contentRef, isContentVisible] = useIntersectionObserver<HTMLDivElement>({ threshold: 0.2, triggerOnce: true });
 
   const openPdfModal = () => setIsPdfModalOpen(true);
   const closePdfModal = () => setIsPdfModalOpen(false);
@@ -22,7 +24,10 @@ const ResumeSection: React.FC<{ id: string; resumeData: ResumeData }> = ({ id, r
   return (
     <>
       <Section id={id} title="My Resume">
-        <div className="bg-neutral-800 p-6 sm:p-8 rounded-xl shadow-xl border border-neutral-700/50 max-w-3xl mx-auto">
+        <div
+          ref={contentRef}
+          className={`bg-neutral-800 p-6 sm:p-8 rounded-xl shadow-xl border border-neutral-700/50 max-w-3xl mx-auto ${isContentVisible ? 'animate-fadeInUp' : 'opacity-0'}`}
+        >
           <div className="text-center">
             <p className="text-neutral-300 leading-relaxed mb-8">{resumeData.summary}</p>
             {resumeData.resumePdfUrl && (
